@@ -1,0 +1,165 @@
+/* =============================================================
+   Café Serrano · VERSIÓN RESUELTA (para demo docente)
+   ============================================================= */
+
+
+/* ---------- 1. Variables ---------- */
+:root {
+  --color-primario: #6F4E37;    /* marrón café */
+  --color-secundario: #C8A27A;  /* caramelo */
+  --color-fondo: #FBF7F2;       /* crema */
+  --color-texto: #2B1D14;       /* marrón muy oscuro */
+  --color-blanco: #FFFFFF;
+  --fuente-base: "Segoe UI", Arial, sans-serif;
+  --espaciado: 16px;
+  --radio: 12px;
+}
+
+/* ---------- 2. Estilos generales ---------- */
+body {
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  color: var(--color-primario);
+}
+
+/* ---------- 3. Logo y navegación ---------- */
+.logo {
+  color: var(--color-primario);
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav a {
+  color: var(--color-texto);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--color-primario);
+  text-decoration: underline;
+}
+
+/* ---------- 4. Modelo de caja ---------- */
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 16px 32px;
+  background-color: var(--color-blanco);
+}
+
+.nav-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.seccion {
+  padding: 48px 32px;
+}
+
+.tarjeta {
+  background-color: var(--color-blanco);
+  padding: var(--espaciado);
+  border: 1px solid #EADBC8;
+  border-radius: var(--radio);
+  margin-bottom: var(--espaciado);
+}
+
+.tarjeta img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.precio {
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+.formulario {
+  max-width: 480px;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #CDB9A3;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.formulario .boton {
+  margin-top: 16px;
+  max-width: 260px;
+}
+
+/* ---------- 5. Layout con Flexbox ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-lista {
+  display: flex;
+  gap: 24px;
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaciado);
+}
+
+.tarjeta {
+  flex: 1;             /* todas las tarjetas crecen por igual */
+  min-width: 200px;    /* pero nunca miden menos de 200px */
+  margin-bottom: 0;    /* el espacio ahora lo da gap */
+}
+
+/* ---------- 6. Responsive (mobile-first) ---------- */
+/* Base: celular. Header y tarjetas en columna */
+.header {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.productos {
+  flex-direction: column;
+}
+
+/* Desde 768px de ancho: en fila */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+  }
+
+  .productos {
+    flex-direction: row;
+  }
+}
+
+/* Reducir el espacio vertical de la lista en celulares */
+@media (max-width: 767.98px) {
+  .nav-lista {
+    gap: 4px !important; /* Cambia los 24px por un espacio mínimo en mobile */
+  }
+}
