@@ -18,6 +18,7 @@ y dos modales con formularios (Reserva y Contacto) validados con JavaScript.
 
 ## Estructura
 
+```text
 ├── index.html
 ├── css/
 │   ├── estilos.css
@@ -25,6 +26,7 @@ y dos modales con formularios (Reserva y Contacto) validados con JavaScript.
 └── img/
     ├── taza.svg
     └── dulce.svg
+```
 
 ## Cómo ejecutarlo
 
